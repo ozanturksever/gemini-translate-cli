@@ -74,9 +74,14 @@ Supported language codes:
 }
 
 // Check command line arguments
-if (process.argv.length !== 6) {
+if (process.argv.length !== 6 || process.argv.includes('--help') || process.argv.includes('-h')) {
   printUsage();
-  process.exit(1);
+  process.exit(process.argv.includes('--help') || process.argv.includes('-h') ? 0 : 1);
+}
+
+if (process.argv.includes('--version') || process.argv.includes('-v')) {
+  console.log('gemini-translate v1.0.0');
+  process.exit(0);
 }
 
 const sourceLang = process.argv[2];
@@ -92,6 +97,7 @@ if (!apiKey) {
   console.error('Get your API key from: https://aistudio.google.com/app/apikey');
   process.exit(1);
 }
+const validatedApiKey: string = apiKey;
 
 async function translateHTML(): Promise<void> {
   const sourceLanguage = getLanguageName(sourceLang);
@@ -102,7 +108,7 @@ async function translateHTML(): Promise<void> {
     const htmlContent = await readFile(sourceFile, 'utf-8');
     
     console.log('Initializing Gemini...');
-    const genAI = new GoogleGenerativeAI(apiKey);
+    const genAI = new GoogleGenerativeAI(validatedApiKey);
     const model = genAI.getGenerativeModel({ 
       model: 'gemini-2.5-flash',
       generationConfig: {

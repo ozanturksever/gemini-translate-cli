@@ -8,9 +8,8 @@ A CLI tool to translate HTML files between languages using Google Gemini AI.
 # Using npm
 npm install -g gemini-translate-cli
 
-# Or run directly with bunx/npx
-bunx gemini-translate-cli <source-lang> <target-lang> <source-file> <output-file>
-npx gemini-translate-cli <source-lang> <target-lang> <source-file> <output-file>
+# Or run directly with npx (after publishing to npm)
+npx gemini-translate-cli tr nl input.html output.html
 ```
 
 ## Setup
