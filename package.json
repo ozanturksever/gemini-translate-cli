@@ -1,0 +1,45 @@
+{
+  "name": "gemini-translate-cli",
+  "version": "1.0.0",
+  "description": "A CLI tool to translate HTML files between languages using Google Gemini AI",
+  "author": "Ozan Turksever <ozan.turksever@gmail.com>",
+  "license": "MIT",
+  "type": "module",
+  "bin": {
+    "gemini-translate": "./dist/translate.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "bun build ./src/translate.ts --outdir ./dist --target node",
+    "prepublishOnly": "bun run build"
+  },
+  "keywords": [
+    "translate",
+    "translation",
+    "gemini",
+    "google",
+    "ai",
+    "html",
+    "cli"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ozanturksever/gemini-translate-cli.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ozanturksever/gemini-translate-cli/issues"
+  },
+  "homepage": "https://github.com/ozanturksever/gemini-translate-cli#readme",
+  "dependencies": {
+    "@google/generative-ai": "^0.21.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "typescript": "^5.7.2"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
