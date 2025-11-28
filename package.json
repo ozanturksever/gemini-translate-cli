@@ -6,7 +6,7 @@
   "license": "MIT",
   "type": "module",
   "bin": {
-    "gemini-translate": "./dist/translate.js"
+    "gemini-translate": "dist/translate.js"
   },
   "files": [
     "dist"
